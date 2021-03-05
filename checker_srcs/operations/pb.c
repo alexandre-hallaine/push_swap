@@ -6,13 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 17:28:09 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:46:01 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 20:01:15 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../number.h"
-#include "../utils/lib.h"
+#include "operations.h"
 
 void	pb(t_number *number)
 {
@@ -39,8 +39,5 @@ void	pb(t_number *number)
 	newa[index] = 0;
 	while (--index)
 		newa[index - 1] = number->a[index];
-	free(number->a);
-	number->a = newa;
-	free(number->b);
-	number->b = newb;
+	update(number, newa, newb);
 }

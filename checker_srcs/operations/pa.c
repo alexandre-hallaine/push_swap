@@ -6,12 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 16:43:28 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:45:58 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 20:01:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../number.h"
+#include "operations.h"
 
 void	pa(t_number *number)
 {
@@ -38,8 +39,5 @@ void	pa(t_number *number)
 	newb[index] = 0;
 	while (--index)
 		newb[index - 1] = number->b[index];
-	free(number->a);
-	number->a = newa;
-	free(number->b);
-	number->b = newb;
+	update(number, newa, newb);
 }

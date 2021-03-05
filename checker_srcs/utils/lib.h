@@ -6,15 +6,15 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:04:10 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 16:18:12 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 19:50:37 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIB_H
 # define LIB_H
 
-#include <unistd.h>
-#include <stdbool.h>
+# include <unistd.h>
+# include <stdbool.h>
 
 size_t	ft_strlen(char *str, char c);
 ssize_t	ft_putchar_fd(char c, int fd);

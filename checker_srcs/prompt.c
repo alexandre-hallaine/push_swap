@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 18:36:13 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 19:57:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,8 @@ void	prompt(t_number *number)
 	{
 		ret = get_next_line(0, &line);
 		dispatch(number, line);
-		print(*number);
 		free(line);
 		if (ret <= 0)
-			break;
+			break ;
 	}
 }

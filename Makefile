@@ -3,6 +3,7 @@ SOURCES_CHECKER		=	checker_srcs/utils/ft_put.c \
 						checker_srcs/utils/ft_equals.c \
 						checker_srcs/utils/get_next_line_utils.c \
 						checker_srcs/utils/get_next_line.c \
+						checker_srcs/operations/update.c \
 						checker_srcs/operations/sa.c \
 						checker_srcs/operations/sb.c \
 						checker_srcs/operations/ss.c \
