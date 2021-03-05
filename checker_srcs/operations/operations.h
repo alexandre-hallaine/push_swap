@@ -6,16 +6,15 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:56:29 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 20:00:31 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 23:48:02 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
-# include "../number.h"
+# include "../list.h"
 
-void	update(t_number *number, int *a, int *b);
 void	sa(t_number *number);
 void	sb(t_number *number);
 void	ss(t_number *number);

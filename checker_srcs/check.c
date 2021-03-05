@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   number.h                                           :+:      :+:    :+:   */
+/*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 13:53:14 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:50:18 by ahallain         ###   ########.fr       */
+/*   Created: 2021/03/05 23:45:15 by ahallain          #+#    #+#             */
+/*   Updated: 2021/03/06 00:10:02 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef NUMBER_H
-# define NUMBER_H
+#include <stdbool.h>
+#include "list.h"
 
-typedef struct	s_number
+bool	check(t_number number)
 {
-	int	*a;
-	int	*b;
-}				t_number;
-#endif
+	t_item	*current;
+
+	if (number.b)
+		return (false);
+	current = number.a;
+	while (current->next)
+	{
+		if (current->data > current->next->data)
+			return (false);
+		current = current->next;
+	}
+	return (true);
+}

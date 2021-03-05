@@ -6,33 +6,33 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:57:48 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 23:47:38 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "number.h"
+#include "list.h"
 #include "utils/lib.h"
 #include "operations/operations.h"
 
-void	print(t_number number)
+void	print(t_number number, char *str)
 {
-	size_t	index;
-
+	ft_putstr_fd(str, 1);
+	ft_putchar_fd('\n', 1);
 	ft_putchar_fd('a', 1);
-	index = 0;
-	while (number.a[index])
+	while (number.a)
 	{
 		ft_putchar_fd(' ', 1);
-		ft_putnbr_fd(number.a[index++], 1);
+		ft_putnbr_fd(number.a->data, 1);
+		number.a = number.a->next;
 	}
 	ft_putchar_fd('\n', 1);
 	ft_putchar_fd('b', 1);
-	index = 0;
-	while (number.b[index])
+	while (number.b)
 	{
 		ft_putchar_fd(' ', 1);
-		ft_putnbr_fd(number.b[index++], 1);
+		ft_putnbr_fd(number.b->data, 1);
+		number.b = number.b->next;
 	}
 	ft_putchar_fd('\n', 1);
 	ft_putchar_fd('\n', 1);

@@ -3,7 +3,6 @@ SOURCES_CHECKER		=	checker_srcs/utils/ft_put.c \
 						checker_srcs/utils/ft_equals.c \
 						checker_srcs/utils/get_next_line_utils.c \
 						checker_srcs/utils/get_next_line.c \
-						checker_srcs/operations/update.c \
 						checker_srcs/operations/sa.c \
 						checker_srcs/operations/sb.c \
 						checker_srcs/operations/ss.c \
@@ -15,11 +14,16 @@ SOURCES_CHECKER		=	checker_srcs/utils/ft_put.c \
 						checker_srcs/operations/rra.c \
 						checker_srcs/operations/rrb.c \
 						checker_srcs/operations/rrr.c \
+						checker_srcs/check.c \
 						checker_srcs/prompt.c \
+						checker_srcs/parse.c \
 						checker_srcs/main.c
 OBJECTS_CHECKER		=	${SOURCES_CHECKER:.c=.o}
 
-SOURCES_PUSH_SWAP	=	push_swap_srcs/main.c
+SOURCES_PUSH_SWAP	=	push_swap_srcs/utils/ft_strlen.c \
+						push_swap_srcs/utils/ft_put.c \
+						push_swap_srcs/utils/ft_atoi.c \
+						push_swap_srcs/main.c
 OBJECTS_PUSH_SWAP	=	${SOURCES_PUSH_SWAP:.c=.o}
 
 NAME_CHECKER		=	checker

@@ -6,38 +6,20 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 16:43:28 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 20:01:00 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 22:53:06 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../number.h"
-#include "operations.h"
+#include "../list.h"
 
 void	pa(t_number *number)
 {
-	int		*newa;
-	int		*newb;
-	size_t	index;
+	t_item	*temp;
 
-	if (!number->b[0])
+	if (!number->b)
 		return ;
-	index = 0;
-	while (number->a[index])
-		index++;
-	if (!(newa = malloc(sizeof(int *) * (index + 2))))
-		return ;
-	newa[index + 1] = 0;
-	while (index--)
-		newa[index + 1] = number->a[index];
-	newa[0] = number->b[0];
-	index = 0;
-	while (number->b[index])
-		index++;
-	if (!(newb = malloc(sizeof(int *) * index)))
-		return ;
-	newb[index] = 0;
-	while (--index)
-		newb[index - 1] = number->b[index];
-	update(number, newa, newb);
+	temp = number->b->next;
+	number->b->next = number->a;
+	number->a = number->b;
+	number->b = temp;
 }

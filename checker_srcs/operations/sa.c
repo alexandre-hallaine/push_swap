@@ -6,19 +6,20 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:59:37 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:49:36 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/05 22:47:26 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../number.h"
+#include "../list.h"
 
 void	sa(t_number *number)
 {
-	int	temp;
+	t_item	*temp;
 
-	if (!number->a[0] || !number->a[1])
+	if (!number->a || !number->a->next)
 		return ;
-	temp = number->a[0];
-	number->a[0] = number->a[1];
-	number->a[1] = temp;
+	temp = number->a->next;
+	number->a->next = number->a->next->next;
+	temp->next = number->a;
+	number->a = temp;
 }

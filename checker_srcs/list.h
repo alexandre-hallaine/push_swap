@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update.c                                           :+:      :+:    :+:   */
+/*   list.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 19:59:49 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 20:01:05 by ahallain         ###   ########.fr       */
+/*   Created: 2021/03/05 13:53:14 by ahallain          #+#    #+#             */
+/*   Updated: 2021/03/05 23:05:36 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "../number.h"
+#ifndef LIST_H
+# define LIST_H
 
-void	update(t_number *number, int *a, int *b)
+typedef	struct s_item	t_item;
+struct					s_item
 {
-	free(number->a);
-	number->a = a;
-	free(number->b);
-	number->b = b;
-}
+	int		data;
+	t_item	*next;
+};
+
+typedef struct			s_number
+{
+	t_item	*a;
+	t_item	*b;
+}						t_number;
+#endif
