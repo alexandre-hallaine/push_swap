@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:44:26 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 23:54:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:22:05 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_item	*item(int data)
 	if (!(ret = malloc(sizeof(t_item))))
 		return (NULL);
 	ret->data = data;
+	ret->next = 0;
 	return (ret);
 }
 

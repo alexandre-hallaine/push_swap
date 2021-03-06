@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 00:20:19 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:38:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,22 @@
 #include "checker.h"
 #include "utils/lib.h"
 
-void	freeitem(t_item *item)
+void	freenumber(t_number number)
 {
-	if (!item)
-		return ;
-	freeitem(item->next);
-	free(item);
+	t_item	*temp;
+
+	while (number.a)
+	{
+		temp = number.a->next;
+		free(number.a);
+		number.a = temp;
+	}
+	while (number.b)
+	{
+		temp = number.b->next;
+		free(number.b);
+		number.b = temp;
+	}
 }
 
 int		main(int argc, char **argv)
@@ -44,7 +54,6 @@ int		main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		ret = 1;
 	}
-	freeitem(number.a);
-	freeitem(number.b);
+	freenumber(number);
 	return (ret);
 }

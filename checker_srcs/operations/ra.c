@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 17:47:36 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 22:58:11 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 18:19:34 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,14 @@ void	ra(t_number *number)
 
 	temp = number->a;
 	number->a = number->a->next;
-	last = number->a;
-	while (last->next)
-		last = last->next;
-	last->next = temp;
+	temp->next = 0;
+	if (number->a)
+	{
+		last = number->a;
+		while (last->next)
+			last = last->next;
+		last->next = temp;
+	}
+	else
+		number->a = temp;
 }
