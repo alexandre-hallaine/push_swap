@@ -6,40 +6,36 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 18:38:10 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 23:30:15 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "list.h"
 #include "utils/lib.h"
 #include "operations/operations.h"
 
-void	print(t_number *number, char *str)
+void	printnumber(t_number number)
 {
-	t_item	*current;
-
-	ft_putstr_fd(str, 1);
-	ft_putchar_fd('\n', 1);
-	ft_putchar_fd('a', 1);
-	current = number->a;
-	while (current)
+	printf("\e[H\e[2J");
+	printf("%11c   %-11c\n", 'a', 'b');
+	while (number.a || number.b)
 	{
-		ft_putchar_fd(' ', 1);
-		ft_putnbr_fd(current->data, 1);
-		current = current->next;
+		if (number.a)
+		{
+			printf("%11d | ", number.a->data);
+			number.a = number.a->next;
+		}
+		else
+			printf("%11s | ", "");
+		if (number.b)
+		{
+			printf("%-11d", number.b->data);
+			number.b = number.b->next;
+		}
+		printf("\n");
 	}
-	ft_putchar_fd('\n', 1);
-	ft_putchar_fd('b', 1);
-	current = number->b;
-	while (current)
-	{
-		ft_putchar_fd(' ', 1);
-		ft_putnbr_fd(current->data, 1);
-		current = current->next;
-	}
-	ft_putchar_fd('\n', 1);
-	ft_putchar_fd('\n', 1);
 }
 
 void	dispatch(t_number *number, char *str)
@@ -68,7 +64,7 @@ void	dispatch(t_number *number, char *str)
 		rrr(number);
 }
 
-void	prompt(t_number *number)
+void	prompt(t_number *number, bool print)
 {
 	int		ret;
 	char	*line;
@@ -77,6 +73,8 @@ void	prompt(t_number *number)
 	{
 		ret = get_next_line(0, &line);
 		dispatch(number, line);
+		if (print)
+			printnumber(*number);
 		free(line);
 		if (ret <= 0)
 			break ;

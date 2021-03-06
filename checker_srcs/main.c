@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 18:38:00 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 21:11:28 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,22 @@ int		main(int argc, char **argv)
 {
 	t_number	number;
 	int			ret;
+	bool		print;
 
+	(void)argc;
+	argv++;
+	print = false;
+	if (ft_equals(*argv, "-v"))
+	{
+		print = true;
+		argv++;
+	}
 	number = (t_number){0, 0};
-	if (argc > 1)
-		number.a = parse(argv + 1);
+	if (*argv)
+		number.a = parse(argv);
 	if (number.a)
 	{
-		prompt(&number);
+		prompt(&number, print);
 		if (check(number))
 			ft_putstr_fd("OK\n", 1);
 		else

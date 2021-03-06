@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:45:15 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 18:22:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/06 23:25:29 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	check(t_number number)
 	if (number.b)
 		return (false);
 	current = number.a;
-	while (current->next)
+	while (current && current->next)
 	{
 		if (current->data > current->next->data)
 			return (false);
