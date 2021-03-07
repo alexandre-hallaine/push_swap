@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 07:53:18 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 17:56:48 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:21:40 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	freeitem(t_item *item);
 void	dispatch(t_number *number, char *operation);
 void	execute(t_number *number, char *operation);
 size_t	getlen(t_item *item);
-ssize_t	gettotal(t_item *item);
 int		getmin(t_item *item);
 int		getmax(t_item *item);
 size_t	getindex(t_item *item, int nbr);
+ssize_t	getpivot(t_number number, size_t index, size_t division);
 void	sort(t_number *number);
 #endif

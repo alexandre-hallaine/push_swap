@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 17:57:29 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 19:28:47 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,15 @@ int		main(int argc, char **argv)
 
 	(void)argc;
 	argv++;
-	number = (t_number){0, 0};
-	if (*argv)
-		number.a = parse(argv);
-	if (number.a)
-		sort(&number);
-	else
+	if (!*argv)
+		return (0);
+	number = (t_number){parse(argv), 0};
+	if (!number.a)
+	{
 		ft_putstr_fd("Error\n", 2);
+		return (1);
+	}
+	sort(&number);
 	freeitem(number.a);
 	freeitem(number.b);
 	return (0);

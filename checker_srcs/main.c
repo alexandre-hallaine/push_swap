@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 17:57:24 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 19:29:44 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int		main(int argc, char **argv)
 	(void)argc;
 	argv++;
 	print = false;
-	if (ft_equals(*argv, "-v"))
+	if (*argv && ft_equals(*argv, "-v"))
 	{
 		print = true;
 		argv++;
 	}
-	number = (t_number){0, 0};
-	if (*argv)
-		number.a = parse(argv);
+	if (!*argv)
+		return (0);
+	number = (t_number){parse(argv), 0};
 	ret = run(&number, print);
 	freeitem(number.a);
 	freeitem(number.b);

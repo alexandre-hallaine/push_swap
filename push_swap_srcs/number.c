@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   number_utils.c                                     :+:      :+:    :+:   */
+/*   number.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 16:33:47 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 16:37:38 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:21:25 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,6 @@ size_t	getlen(t_item *item)
 		item = item->next;
 	}
 	return (len);
-}
-
-ssize_t	gettotal(t_item *item)
-{
-	ssize_t	total;
-
-	total = 0;
-	while (item)
-	{
-		total += item->data;
-		item = item->next;
-	}
-	return (total);
 }
 
 int		getmin(t_item *item)
@@ -80,4 +67,16 @@ size_t	getindex(t_item *item, int nbr)
 		item = item->next;
 	}
 	return (0);
+}
+
+ssize_t	getpivot(t_number number, size_t index, size_t division)
+{
+	ssize_t	max;
+	ssize_t	min;
+
+	max = getmax(number.a);
+	min = getmin(number.a);
+	if (index < division)
+		return ((max - min) * index / division + min);
+	return (max);
 }

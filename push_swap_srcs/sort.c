@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 08:59:30 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 18:51:47 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:21:56 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,5 @@ void	sort(t_number *number)
 	indexmax = len;
 	index = 0;
 	while (index++ < division)
-		indexmax -= sort_partition(number, indexmax,
-			getmax(number->a) - ((division - index)
-			* (gettotal(number->a) / len / division * 2)));
+		indexmax -= sort_partition(number, indexmax, getpivot(*number, index, division));
 }
