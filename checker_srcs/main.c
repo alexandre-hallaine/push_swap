@@ -6,13 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 21:11:28 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 08:51:54 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "checker.h"
-#include "utils/lib.h"
+#include "../utils/lib.h"
 
 void	freenumber(t_number number)
 {

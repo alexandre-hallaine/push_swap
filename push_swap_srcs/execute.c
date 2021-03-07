@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 15:42:29 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 09:16:13 by ahallain         ###   ########.fr       */
+/*   Created: 2021/03/07 09:13:48 by ahallain          #+#    #+#             */
+/*   Updated: 2021/03/07 09:25:28 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include <unistd.h>
+#include "push_swap.h"
+#include "../list.h"
+#include "../utils/lib.h"
 
-# include <stdbool.h>
-# include "../list.h"
-
-t_item	*parse(char **args);
-void	dispatch(t_number *number, char *operation);
-void	prompt(t_number *number, bool print);
-bool	check(t_number number);
-#endif
+void	execute(t_number *number, char *operation)
+{
+	dispatch(number, operation);
+	ft_putstr_fd(operation, 1);
+	ft_putchar_fd('\n', 1);
+}

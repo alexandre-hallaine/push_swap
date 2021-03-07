@@ -1,28 +1,30 @@
-SOURCES_CHECKER		=	checker_srcs/utils/ft_put.c \
-						checker_srcs/utils/ft_atoi.c \
-						checker_srcs/utils/ft_equals.c \
-						checker_srcs/utils/get_next_line_utils.c \
-						checker_srcs/utils/get_next_line.c \
-						checker_srcs/operations/sa.c \
-						checker_srcs/operations/sb.c \
-						checker_srcs/operations/ss.c \
-						checker_srcs/operations/pa.c \
-						checker_srcs/operations/pb.c \
-						checker_srcs/operations/ra.c \
-						checker_srcs/operations/rb.c \
-						checker_srcs/operations/rr.c \
-						checker_srcs/operations/rra.c \
-						checker_srcs/operations/rrb.c \
-						checker_srcs/operations/rrr.c \
-						checker_srcs/check.c \
+SOURCES				=	utils/ft_put.c \
+						utils/ft_atoi.c \
+						utils/ft_equals.c \
+						utils/get_next_line_utils.c \
+						utils/get_next_line.c \
+						utils/parse.c \
+						utils/dispatch.c \
+						operations/sa.c \
+						operations/sb.c \
+						operations/ss.c \
+						operations/pa.c \
+						operations/pb.c \
+						operations/ra.c \
+						operations/rb.c \
+						operations/rr.c \
+						operations/rra.c \
+						operations/rrb.c \
+						operations/rrr.c
+OBJECTS				=	${SOURCES:.c=.o}
+
+SOURCES_CHECKER		=	checker_srcs/check.c \
 						checker_srcs/prompt.c \
-						checker_srcs/parse.c \
 						checker_srcs/main.c
 OBJECTS_CHECKER		=	${SOURCES_CHECKER:.c=.o}
 
-SOURCES_PUSH_SWAP	=	push_swap_srcs/utils/ft_strlen.c \
-						push_swap_srcs/utils/ft_put.c \
-						push_swap_srcs/utils/ft_atoi.c \
+SOURCES_PUSH_SWAP	=	push_swap_srcs/execute.c \
+						push_swap_srcs/sort.c \
 						push_swap_srcs/main.c
 OBJECTS_PUSH_SWAP	=	${SOURCES_PUSH_SWAP:.c=.o}
 
@@ -39,14 +41,14 @@ COMPILATION_FLAGS	=	-Wall -Wextra -Werror
 
 all: ${NAME_CHECKER} ${NAME_PUSH_SWAP}
 
-${NAME_CHECKER}: ${OBJECTS_CHECKER}
-	${COMPILE} -o ${NAME_CHECKER} ${OBJECTS_CHECKER}
+${NAME_CHECKER}: ${OBJECTS} ${OBJECTS_CHECKER}
+	${COMPILE} -o ${NAME_CHECKER} ${OBJECTS} ${OBJECTS_CHECKER}
 
-${NAME_PUSH_SWAP}: ${OBJECTS_PUSH_SWAP}
-	${COMPILE} -o ${NAME_PUSH_SWAP} ${OBJECTS_PUSH_SWAP}
+${NAME_PUSH_SWAP}: ${OBJECTS} ${OBJECTS_PUSH_SWAP}
+	${COMPILE} -o ${NAME_PUSH_SWAP} ${OBJECTS} ${OBJECTS_PUSH_SWAP}
 
 clean:
-	${REMOVE} ${OBJECTS_CHECKER} ${OBJECTS_PUSH_SWAP}
+	${REMOVE} ${OBJECTS} ${OBJECTS_CHECKER} ${OBJECTS_PUSH_SWAP}
 
 fclean: clean
 	${REMOVE} ${NAME_CHECKER} ${NAME_PUSH_SWAP}

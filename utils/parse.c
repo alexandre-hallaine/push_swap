@@ -6,13 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:44:26 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 18:22:05 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 08:51:30 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "list.h"
-#include "utils/lib.h"
+#include "lib.h"
+#include "../list.h"
 
 t_item	*item(int data)
 {
