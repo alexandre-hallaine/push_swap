@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 18:06:34 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/06 18:20:18 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:12:45 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	rb(t_number *number)
 	t_item	*temp;
 	t_item	*last;
 
+	if (!number->b)
+		return ;
 	temp = number->b;
 	number->b = number->b->next;
 	temp->next = 0;

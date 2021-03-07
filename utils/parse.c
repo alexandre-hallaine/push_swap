@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:44:26 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 14:52:53 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:54:23 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,55 @@ t_item	*item(int data)
 	return (ret);
 }
 
+bool	contain(t_item *item, int nbr)
+{
+	while (item)
+	{
+		if (item->data == nbr)
+			return (true);
+		item = item->next;
+	}
+	return (false);
+}
+
+bool	isnbr(char *str)
+{
+	if (*str == '-' || *str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
+		str++;
+	if (*str)
+		return (false);
+	return (true);
+}
+
+void	freeitem(t_item *item)
+{
+	if (!item)
+		return ;
+	freeitem(item->next);
+	free(item);
+}
+
 t_item	*parse(char **args)
 {
 	size_t	index;
-	size_t	index1;
 	t_item	*list;
 	t_item	*last;
+	int		data;
 
 	index = 0;
 	list = item(ft_atoi(args[index++]));
 	last = list;
 	while (args[index])
 	{
-		index1 = 0;
-		if (args[index][index1] == '-' || args[index][index1] == '+')
-			index1++;
-		while (args[index][index1] >= '0' && args[index][index1] <= '9')
-			index1++;
-		if (args[index][index1])
+		if (!isnbr(args[index])
+			|| contain(list, (data = ft_atoi(args[index++]))))
+		{
+			freeitem(list);
 			return (0);
-		last->next = item(ft_atoi(args[index++]));
+		}
+		last->next = item(data);
 		last = last->next;
 	}
 	return (list);

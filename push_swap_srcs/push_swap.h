@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 07:53:18 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 16:36:01 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:56:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../list.h"
 
 t_item	*parse(char **args);
+void	freeitem(t_item *item);
 void	dispatch(t_number *number, char *operation);
 void	execute(t_number *number, char *operation);
 size_t	getlen(t_item *item);

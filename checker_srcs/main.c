@@ -6,31 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 16:20:44 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 17:57:24 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "checker.h"
 #include "../utils/lib.h"
-
-void	freenumber(t_number number)
-{
-	t_item	*temp;
-
-	while (number.a)
-	{
-		temp = number.a->next;
-		free(number.a);
-		number.a = temp;
-	}
-	while (number.b)
-	{
-		temp = number.b->next;
-		free(number.b);
-		number.b = temp;
-	}
-}
 
 int		run(t_number *number, bool print)
 {
@@ -71,6 +53,7 @@ int		main(int argc, char **argv)
 	if (*argv)
 		number.a = parse(argv);
 	ret = run(&number, print);
-	freenumber(number);
+	freeitem(number.a);
+	freeitem(number.b);
 	return (ret);
 }

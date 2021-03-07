@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 09:12:31 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 16:06:41 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 18:55:31 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,6 @@ void	dispatch(t_number *number, char *operation)
 		rrb(number);
 	else if (ft_equals(operation, "rrr"))
 		rrr(number);
+	else
+		ft_putstr_fd("Error\n", 2);
 }
