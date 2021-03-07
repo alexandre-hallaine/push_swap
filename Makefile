@@ -1,10 +1,10 @@
 SOURCES				=	utils/ft_put.c \
-						utils/ft_atoi.c \
 						utils/ft_equals.c \
 						utils/get_next_line_utils.c \
 						utils/get_next_line.c \
 						utils/parse.c \
 						utils/dispatch.c \
+						utils/check.c \
 						operations/sa.c \
 						operations/sb.c \
 						operations/ss.c \
@@ -18,8 +18,7 @@ SOURCES				=	utils/ft_put.c \
 						operations/rrr.c
 OBJECTS				=	${SOURCES:.c=.o}
 
-SOURCES_CHECKER		=	checker_srcs/check.c \
-						checker_srcs/prompt.c \
+SOURCES_CHECKER		=	checker_srcs/prompt.c \
 						checker_srcs/main.c
 OBJECTS_CHECKER		=	${SOURCES_CHECKER:.c=.o}
 

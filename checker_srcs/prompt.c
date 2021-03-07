@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 18:56:53 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:43:26 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,19 @@ void	prompt(t_number *number, bool print)
 	int		ret;
 	char	*line;
 
-	while ((ret = get_next_line(0, &line)) > 0)
+	if (print)
+		printnumber(*number);
+	while (1)
 	{
-		dispatch(number, line);
-		if (print)
-			printnumber(*number);
+		ret = get_next_line(0, &line);
+		if (ret > 0)
+		{
+			dispatch(number, line);
+			if (print)
+				printnumber(*number);
+		}
 		free(line);
+		if (ret <= 0)
+			break ;
 	}
 }

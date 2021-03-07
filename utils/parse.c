@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:44:26 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 17:54:23 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 20:42:49 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,23 +36,40 @@ bool	contain(t_item *item, int nbr)
 	return (false);
 }
 
-bool	isnbr(char *str)
-{
-	if (*str == '-' || *str == '+')
-		str++;
-	while (*str >= '0' && *str <= '9')
-		str++;
-	if (*str)
-		return (false);
-	return (true);
-}
-
 void	freeitem(t_item *item)
 {
 	if (!item)
 		return ;
 	freeitem(item->next);
 	free(item);
+}
+
+bool	getint(char *str, int *to)
+{
+	ssize_t	ret;
+	int		multiply;
+
+	multiply = 1;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			multiply = -1;
+		str++;
+	}
+	ret = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		ret *= 10;
+		ret += *str - '0';
+		if ((multiply == 1 && ret > 2147483647)
+			|| (multiply == -1 && ret > 2147483648))
+			return (false);
+		str++;
+	}
+	if (*str)
+		return (false);
+	*to = multiply * ret;
+	return (true);
 }
 
 t_item	*parse(char **args)
@@ -62,16 +79,21 @@ t_item	*parse(char **args)
 	t_item	*last;
 	int		data;
 
+	list = 0;
 	index = 0;
-	list = item(ft_atoi(args[index++]));
-	last = list;
 	while (args[index])
 	{
-		if (!isnbr(args[index])
-			|| contain(list, (data = ft_atoi(args[index++]))))
+		if (!(getint(args[index++], &data))
+			|| contain(list, data))
 		{
 			freeitem(list);
 			return (0);
+		}
+		if (!list)
+		{
+			list = item(data);
+			last = list;
+			continue ;
 		}
 		last->next = item(data);
 		last = last->next;
