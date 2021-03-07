@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 09:28:16 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/07 14:43:49 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	printnumber(t_number number)
 		}
 		printf("\n");
 	}
-	usleep(50000);
+	usleep(5000);
 }
 
 void	prompt(t_number *number, bool print)
