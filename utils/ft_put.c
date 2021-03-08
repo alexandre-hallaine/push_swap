@@ -6,12 +6,12 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:07:21 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 19:50:34 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/08 14:57:31 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "lib.h"
+#include "../utils/lib.h"
 
 ssize_t	ft_putchar_fd(char c, int fd)
 {

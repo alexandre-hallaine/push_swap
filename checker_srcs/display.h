@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   display.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 15:42:29 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 16:49:13 by ahallain         ###   ########.fr       */
+/*   Created: 2021/03/08 15:35:06 by ahallain          #+#    #+#             */
+/*   Updated: 2021/03/08 16:49:22 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#ifndef DISPLAY_H
+# define DISPLAY_H
 
 # include <stdbool.h>
-# include "display.h"
-# include "../list.h"
 
-t_item	*parse(char **args);
-void	freeitem(t_item *item);
-void	dispatch(t_number *number, char *operation);
-void	prompt(t_number *number, t_display isplay);
-bool	check(t_number number);
+typedef struct	s_display
+{
+	bool	color;
+	bool	print;
+}				t_display;
 #endif

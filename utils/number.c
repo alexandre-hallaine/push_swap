@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 16:33:47 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 20:21:25 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/08 17:17:56 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int		getmin(t_item *item)
 {
 	int	min;
 
+	if (!item)
+		return (0);
 	min = item->data;
 	while (item->next)
 	{
@@ -44,6 +46,8 @@ int		getmax(t_item *item)
 {
 	int	max;
 
+	if (!item)
+		return (0);
 	max = item->data;
 	while (item->next)
 	{

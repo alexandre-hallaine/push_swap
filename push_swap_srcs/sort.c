@@ -6,11 +6,12 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 08:59:30 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 20:42:22 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/08 17:01:54 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../utils/lib.h"
 
 size_t	bestindex(size_t index1, size_t index2, size_t len)
 {
@@ -67,6 +68,7 @@ void	sort_b(t_number *number)
 
 size_t	sort_partition(t_number *number, size_t indexmax, ssize_t pivot)
 {
+	size_t	len_total;
 	size_t	len;
 
 	len = getlen(number->a) - indexmax;
@@ -75,9 +77,16 @@ size_t	sort_partition(t_number *number, size_t indexmax, ssize_t pivot)
 			execute(number, "pb");
 		else
 			execute(number, "ra");
-	if (len < getlen(number->a))
-		while (len--)
-			execute(number, "ra");
+	len_total = getlen(number->a);
+	if (len < len_total)
+	{
+		if (len < len_total / 2)
+			while (len--)
+				execute(number, "ra");
+		else
+			while (len++ < len_total)
+				execute(number, "rra");
+	}
 	len = getlen(number->b);
 	sort_b(number);
 	return (len);

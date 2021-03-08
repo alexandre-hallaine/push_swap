@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 11:17:38 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/08 18:23:27 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,49 +18,90 @@
 #include "../utils/lib.h"
 #include "../operations/operations.h"
 
-void	printnumber(t_number number, char *str, size_t count)
+char	*nbrtostr(int nbr, int min, int max)
 {
-	printf("\e[H\e[2J");
-	printf("%-8s%7s   %s %8zu\n", str, "Stack A", "Stack B", count);
-	while (number.a || number.b)
+	size_t	amount;
+	char	*ret;
+
+	if (max - min == 0)
+		amount = 25;
+	else
+		amount = 25 * (nbr - min) / (max - min);
+	if (!(ret = malloc(sizeof(char *) * (amount + 1))))
+		return (NULL);
+	ret[amount] = 0;
+	while (amount-- > 0)
+		ret[amount] = '|';
+	return (ret);
+}
+
+void	printitem(t_item *item, size_t min, size_t max)
+{
+	char	*str;
+
+	if (item)
 	{
+		str = nbrtostr(item->data, min, max);
+		printf("%3d %-25s", item->data, str);
+		free(str);
+	}
+	else
+		printf("%29s", "");
+}
+
+void	print(t_number number, char **operations, size_t count)
+{
+	size_t	index;
+	int		min_a;
+	int		max_a;
+	int		min_b;
+	int		max_b;
+
+	min_a = getmin(number.a);
+	max_a = getmax(number.a);
+	min_b = getmin(number.b);
+	max_b = getmax(number.b);
+	printf("\e[2J\e[H");
+	index = 0;
+	while (index++ < 50)
+	{
+		printf("%3s| ", count > 0 ? operations[--count] : "");
+		printitem(number.a, min_a, max_a);
 		if (number.a)
-		{
-			printf("%15d | ", number.a->data);
 			number.a = number.a->next;
-		}
-		else
-			printf("%15s | ", "");
+		printf(" ");
+		printitem(number.b, min_b, max_b);
 		if (number.b)
-		{
-			printf("%d", number.b->data);
 			number.b = number.b->next;
-		}
 		printf("\n");
 	}
 	usleep(50000);
 }
 
-void	prompt(t_number *number, bool print)
+void	prompt(t_number *number, t_display display)
 {
 	int		ret;
 	char	*line;
+	char	**operations;
 	size_t	count;
 
 	count = 0;
-	if (print)
-		printnumber(*number, "", count);
+	if (!(operations = malloc(sizeof(char **) * 1000000)))
+		return ;
+	if (display.print)
+		print(*number, operations, count);
 	while (1)
 	{
 		ret = get_next_line(0, &line);
+		operations[count++] = line;
 		if (ret > 0)
-		{
 			dispatch(number, line);
-			if (print)
-				printnumber(*number, line, count++);
-		}
-		free(line);
+		if (ret > 0 && display.print)
+			print(*number, operations, count);
 		if (ret <= 0)
 			break ;
 	}
+	while (count--)
+		free(operations[count]);
+	free(operations);
 }

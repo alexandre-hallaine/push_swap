@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 19:29:44 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/08 15:49:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 #include "checker.h"
 #include "../utils/lib.h"
 
-int		run(t_number *number, bool print)
+int			run(t_number *number, t_display display)
 {
 	int	ret;
 
 	if (number->a)
 	{
-		prompt(number, print);
+		prompt(number, display);
 		if (check(*number))
 			ft_putstr_fd("OK\n", 1);
 		else
@@ -35,24 +35,37 @@ int		run(t_number *number, bool print)
 	return (ret);
 }
 
-int		main(int argc, char **argv)
+t_display	flag(char ***args)
+{
+	bool	color;
+	bool	print;
+
+	color = false;
+	print = false;
+	while (***args == '-')
+	{
+		if ((**args)[1] == 'c')
+			color = true;
+		else if ((**args)[1] == 'v')
+			print = true;
+		(*args)++;
+	}
+	return ((t_display){color, print});
+}
+
+int			main(int argc, char **argv)
 {
 	t_number	number;
+	t_display	display;
 	int			ret;
-	bool		print;
 
 	(void)argc;
 	argv++;
-	print = false;
-	if (*argv && ft_equals(*argv, "-v"))
-	{
-		print = true;
-		argv++;
-	}
+	display = flag(&argv);
 	if (!*argv)
 		return (0);
 	number = (t_number){parse(argv), 0};
-	ret = run(&number, print);
+	ret = run(&number, display);
 	freeitem(number.a);
 	freeitem(number.b);
 	return (ret);
