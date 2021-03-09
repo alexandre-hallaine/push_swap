@@ -6,11 +6,10 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 16:33:47 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 17:17:56 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:36:58 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
 #include "../utils/lib.h"
 
 size_t	getlen(t_item *item)

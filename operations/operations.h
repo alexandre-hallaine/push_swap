@@ -6,14 +6,14 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:56:29 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 23:48:02 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:34:12 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
 
-# include "../list.h"
+# include "../utils/list.h"
 
 void	sa(t_number *number);
 void	sb(t_number *number);

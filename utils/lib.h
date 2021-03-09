@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 14:04:10 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 14:58:00 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:36:46 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdbool.h>
-# include "../list.h"
+# include "../utils/list.h"
 
 size_t	ft_strlen(char *str, char c);
 ssize_t	ft_putchar_fd(char c, int fd);

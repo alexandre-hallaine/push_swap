@@ -6,11 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 17:47:36 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 17:12:46 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:31:50 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../utils/list.h"
 
 void	ra(t_number *number)
 {

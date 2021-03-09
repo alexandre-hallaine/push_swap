@@ -6,11 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:59:37 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 22:47:26 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:31:35 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../utils/list.h"
 
 void	sa(t_number *number)
 {

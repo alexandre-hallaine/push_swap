@@ -6,11 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 16:43:28 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/05 22:53:06 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:34:15 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
+#include "../utils/list.h"
 
 void	pa(t_number *number)
 {

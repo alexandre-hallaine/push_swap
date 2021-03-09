@@ -6,14 +6,13 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:44:56 by ahallain          #+#    #+#             */
-/*   Updated: 2021/02/20 19:41:17 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:36:25 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "get_next_line.h"
 
 #ifndef BUFFERSIZE

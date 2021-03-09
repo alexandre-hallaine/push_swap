@@ -6,16 +6,15 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 07:53:18 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/09 21:10:28 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:35:03 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <unistd.h>
 # include <stdbool.h>
-# include "../list.h"
+# include "../utils/list.h"
 
 t_item	*parse(char **args);
 void	freeitem(t_item *item);

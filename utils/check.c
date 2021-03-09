@@ -6,12 +6,12 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 23:45:15 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/09 21:09:22 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:35:40 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
-#include "../list.h"
+#include "../utils/list.h"
 
 bool	check(t_item *item)
 {

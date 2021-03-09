@@ -6,12 +6,11 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 09:12:31 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 18:55:31 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:35:48 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lib.h"
-#include "../list.h"
 #include "../operations/operations.h"
 
 void	dispatch(t_number *number, char *operation)

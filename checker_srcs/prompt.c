@@ -6,17 +6,14 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 15:37:59 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 18:23:27 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:33:59 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include "checker.h"
-#include "../list.h"
 #include "../utils/lib.h"
-#include "../operations/operations.h"
 
 char	*nbrtostr(int nbr, int min, int max)
 {
