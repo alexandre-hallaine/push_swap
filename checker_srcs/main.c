@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/09 23:04:16 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 23:17:11 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,9 @@ t_display	flag(char ***args)
 	color = false;
 	print = false;
 	if (**args)
-		while (***args == '-')
+		while (***args == '-'
+			&& (**args)[1] >= 'a'
+			&& (**args)[1] <= 'z')
 		{
 			if ((**args)[1] == 'c')
 				color = true;
