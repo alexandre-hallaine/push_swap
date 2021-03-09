@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/07 08:59:30 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 17:01:54 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:24:26 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ void	sort(t_number *number)
 	size_t	indexmax;
 
 	len = getlen(number->a);
+	if (len <= 50)
+		return (sort_small(number));
 	division = len / 50;
 	if (len > len / 50 * 50)
 		division++;

@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/08 15:49:00 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:10:00 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int			run(t_number *number, t_display display)
 	if (number->a)
 	{
 		prompt(number, display);
-		if (check(*number))
+		if (!number->b && check(number->a))
 			ft_putstr_fd("OK\n", 1);
 		else
 			ft_putstr_fd("KO\n", 1);

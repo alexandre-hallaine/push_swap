@@ -24,6 +24,7 @@ SOURCES_CHECKER		=	checker_srcs/prompt.c \
 OBJECTS_CHECKER		=	${SOURCES_CHECKER:.c=.o}
 
 SOURCES_PUSH_SWAP	=	push_swap_srcs/execute.c \
+						push_swap_srcs/sort_small.c \
 						push_swap_srcs/sort.c \
 						push_swap_srcs/main.c
 OBJECTS_PUSH_SWAP	=	${SOURCES_PUSH_SWAP:.c=.o}

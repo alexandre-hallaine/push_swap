@@ -6,7 +6,7 @@
 /*   By: ahallain <ahallain@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 22:01:23 by ahallain          #+#    #+#             */
-/*   Updated: 2021/03/07 23:33:55 by ahallain         ###   ########.fr       */
+/*   Updated: 2021/03/09 21:16:09 by ahallain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
-	if (!check(number))
+	if (!check(number.a))
 		sort(&number);
 	freeitem(number.a);
 	freeitem(number.b);
